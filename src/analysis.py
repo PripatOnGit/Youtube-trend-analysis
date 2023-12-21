@@ -3,6 +3,7 @@ import psycopg2;
 from psycopg2 import sql;
 import csv;
 
+#database Parameters
 database_params = {
     "host": "localhost",
     "port": "5432",
@@ -11,6 +12,7 @@ database_params = {
     "password": "root"
 }
 
+#function to create database connection
 def create_connection():
     try:
         connection = psycopg2.connect(**database_params)
@@ -20,11 +22,13 @@ def create_connection():
         print("Error while connecting to PostgreSQL:", error)
         return None
 
+#function to close database connection
 def close_connection(connection):
     if connection:
         connection.close()
         print("Connection closed")
 
+#function to execute query.
 def execute_query(connection, query):
     try:
         with connection.cursor() as cursor:
