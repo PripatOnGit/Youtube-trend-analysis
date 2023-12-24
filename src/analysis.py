@@ -40,7 +40,7 @@ def execute_query(connection, query):
         return None
     
 
-
+#query to insert non-duplicate data in tables
 def insert_data(connection, table_name, data):
     unique_keys = set()
     try:
